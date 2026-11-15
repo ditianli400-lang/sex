@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -203,9 +203,9 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 </div>
 
 <section class="hero" aria-label="Featured collection">
-  <div class="hero-kicker">✦ FEATURED COLLECTION</div>
-  <h1>Find something you’ll enjoy</h1>
-  <p>Browse the latest collection by category, or search for a title.</p>
+  <div class="hero-kicker" id="heroKicker">✦ FREE HARDCORE COLLECTION</div>
+  <h1 id="heroTitle">Free Uncensored Full Videos + Live Dirty Cam Girls</h1>
+  <p id="heroDesc">Thousands of uncensored videos updated daily. Stream unlimited hardcore porn for free and stroke while chatting/playing dirty with real horny girls live. No signup. Start jerking now.</p>
   <div class="hero-line"></div>
 </section>
 
@@ -271,15 +271,69 @@ const VIDEO_LIBRARY = [
 ];
 
 const I18N = {
-  "zh-TW": { all:"全部", live:"直播", ai:"AI視頻", anime:"動漫", europe:"歐美", asian:"亞洲", homemade:"自製", lesbian:"女同", threesome:"3P", anal:"肛門", longlegs:"長腿", search:"搜尋標題...", empty:"找不到視頻", dl:"下載", big:"↓ 下載立即免費觀看 · 免登入", more:"點擊查看更多", tip:"100% 免費 · 無需註冊 · 無月費", online:"在線 " },
-  en: { all:"All", live:"Live", ai:"AI", anime:"Anime", europe:"Western", asian:"Asian", homemade:"Homemade", lesbian:"Lesbian", threesome:"3P", anal:"Anal", longlegs:"Long Legs", search:"Search...", empty:"No videos found", dl:"Download", big:"↓ Download · Watch Free · No Login", more:"Click to see more", tip:"100% Free · No registration · No fee", online:"Online " },
-  ja: { all:"すべて", live:"ライブ", ai:"AI", anime:"アニメ", europe:"欧米", asian:"アジア", homemade:"素人", lesbian:"レズ", threesome:"3P", anal:"アナル", longlegs:"美脚", search:"検索...", empty:"動画なし", dl:"ダウンロード", big:"↓ ダウンロードして無料視聴", more:"もっと見る", tip:"100%無料 · 登録不要", online:"オンライン " },
-  ko: { all:"전체", live:"라이브", ai:"AI", anime:"애니", europe:"서양", asian:"아시아", homemade:"홈메이드", lesbian:"레즈", threesome:"쓰리섬", anal:"애널", longlegs:"롱레그", search:"검색...", empty:"영상 없음", dl:"다운로드", big:"↓ 다운로드 후 무료 시청", more:"더 보기", tip:"100% 무료 · 가입 불필요", online:"온라인 " },
-  hi: { all:"सभी", live:"लाइव", ai:"AI", anime:"एनीमे", europe:"वेस्टर्न", asian:"एशियन", homemade:"होममेड", lesbian:"लेस्बियन", threesome:"थ्रीसम", anal:"एनल", longlegs:"लॉन्ग लेग्स", search:"खोजें...", empty:"कोई वीडियो नहीं", dl:"डाउनलोड", big:"↓ डाउनलोड · मुफ्त देखें · बिना लॉगिन", more:"और देखें", tip:"100% मुफ्त · बिना रजिस्ट्रेशन", online:"ऑनलाइन " },
-  fr: { all:"Tout", live:"Live", ai:"IA", anime:"Anime", europe:"Occidental", asian:"Asiatique", homemade:"Amateur", lesbian:"Lesbienne", threesome:"Plan à 3", anal:"Anal", longlegs:"Longues jambes", search:"Rechercher...", empty:"Aucune vidéo", dl:"Télécharger", big:"↓ Télécharger · Regarder gratuitement", more:"Voir plus", tip:"100% Gratuit · Sans inscription", online:"En ligne " },
-  de: { all:"Alle", live:"Live", ai:"KI", anime:"Anime", europe:"Western", asian:"Asiatisch", homemade:"Homemade", lesbian:"Lesbisch", threesome:"Dreier", anal:"Anal", longlegs:"Lange Beine", search:"Suchen...", empty:"Keine Videos", dl:"Download", big:"↓ Download · Kostenlos ansehen", more:"Mehr sehen", tip:"100% Kostenlos · Keine Anmeldung", online:"Online " },
-  es: { all:"Todo", live:"En vivo", ai:"IA", anime:"Anime", europe:"Occidental", asian:"Asiático", homemade:"Casero", lesbian:"Lesbianas", threesome:"Trío", anal:"Anal", longlegs:"Piernas largas", search:"Buscar títulos...", empty:"No se encontraron videos", dl:"Descargar", big:"↓ Descargar · Ver gratis · Sin iniciar sesión", more:"Haz clic para ver más", tip:"100% gratis · Sin registro · Sin cuotas", online:"En línea " },
-  ar: { all:"الكل", live:"مباشر", ai:"ذكاء اصطناعي", anime:"أنمي", europe:"غربي", asian:"آسيوي", homemade:"منزلي", lesbian:"سحاقي", threesome:"ثلاثي", anal:"شرجي", longlegs:"أرجل طويلة", search:"ابحث عن العناوين...", empty:"لم يتم العثور على فيديوهات", dl:"تنزيل", big:"↓ تنزيل · مشاهدة مجانية · بدون تسجيل دخول", more:"انقر لعرض المزيد", tip:"مجاني 100% · لا يلزم التسجيل · بدون رسوم", online:"متصل " }
+  "zh-TW": {
+    all:"全部", live:"直播", ai:"AI視頻", anime:"動漫", europe:"歐美", asian:"亞洲", homemade:"自製", lesbian:"女同", threesome:"3P", anal:"肛門", longlegs:"長腿",
+    search:"搜尋標題...", empty:"找不到視頻", dl:"下載", big:"↓ 下載立即免費觀看 · 免登入", more:"點擊查看更多", tip:"100% 免費 · 無需註冊 · 無月費", online:"在線 ",
+    heroKicker: "✦ 免費高清色片庫",
+    heroTitle: "免費無碼完整片 + 直播跟騷貨玩",
+    heroDesc: "超大片庫每天更新。免費無限看無碼全長色情片，還能直接跟真實騷貨小姐姐視訊一邊尻一邊玩。完全免註冊，現在就硬起來開尻。"
+  },
+  en: {
+    all:"All", live:"Live", ai:"AI", anime:"Anime", europe:"Western", asian:"Asian", homemade:"Homemade", lesbian:"Lesbian", threesome:"3P", anal:"Anal", longlegs:"Long Legs",
+    search:"Search...", empty:"No videos found", dl:"Download", big:"↓ Download · Watch Free · No Login", more:"Click to see more", tip:"100% Free · No registration · No fee", online:"Online ",
+    heroKicker: "✦ FREE HARDCORE COLLECTION",
+    heroTitle: "Free Uncensored Full Videos + Live Dirty Cam Girls",
+    heroDesc: "Thousands of uncensored videos updated daily. Stream unlimited hardcore porn for free and stroke while chatting/playing dirty with real horny girls live. No signup. Start jerking now."
+  },
+  ja: {
+    all:"すべて", live:"ライブ", ai:"AI", anime:"アニメ", europe:"欧米", asian:"アジア", homemade:"素人", lesbian:"レズ", threesome:"3P", anal:"アナル", longlegs:"美脚",
+    search:"検索...", empty:"動画なし", dl:"ダウンロード", big:"↓ ダウンロードして無料視聴", more:"もっと見る", tip:"100%無料 · 登録不要", online:"オンライン ",
+    heroKicker: "✦ 無料エロ動画コレクション",
+    heroTitle: "無料無修正フル動画＋エロライブチャット",
+    heroDesc: "毎日大量更新のエロ動画。無修正フル動画を無料で見放題、リアルなドエロい女の子とライブでチンポいじりながらエッチなチャット＆プレイ可能。登録不要ですぐシコシコ始めろ。"
+  },
+  ko: {
+    all:"전체", live:"라이브", ai:"AI", anime:"애니", europe:"서양", asian:"아시아", homemade:"홈메이드", lesbian:"레즈", threesome:"쓰리섬", anal:"애널", longlegs:"롱레그",
+    search:"검색...", empty:"영상 없음", dl:"다운로드", big:"↓ 다운로드 후 무료 시청", more:"더 보기", tip:"100% 무료 · 가입 불필요", online:"온라인 ",
+    heroKicker: "✦ 무료 야동 프리미엄",
+    heroTitle: "무료 무삭제 풀야동 + 야한 라이브 캠걸",
+    heroDesc: "매일 업데이트되는 엄청난 야동 라이브러리. 무제한 무료 시청 + 진짜 야한 여자들이랑 실시간으로 자지 만지면서 야한 채팅/플레이 가능. 가입 없이 지금 당장 딸쳐라."
+  },
+  hi: {
+    all:"सभी", live:"लाइव", ai:"AI", anime:"एनीमे", europe:"वेस्टर्न", asian:"एशियन", homemade:"होममेड", lesbian:"लेस्बियन", threesome:"थ्रीसम", anal:"एनल", longlegs:"लॉन्ग लेग्स",
+    search:"खोजें...", empty:"कोई वीडियो नहीं", dl:"डाउनलोड", big:"↓ डाउनलोड · मुफ्त देखें · बिना लॉगिन", more:"और देखें", tip:"100% मुफ्त · बिना रजिस्ट्रेशन", online:"ऑनलाइन ",
+    heroKicker: "✦ मुफ्त हार्डकोर कलेक्शन",
+    heroTitle: "मुफ्त अनसेंसर्ड फुल वीडियो + लाइव गंदी कैम गर्ल्स",
+    heroDesc: "रोज अपडेट होने वाला विशाल लाइब्रेरी। मुफ्त अनलिमिटेड हार्डकोर पॉर्न देखो और असली हॉट लड़कियों के साथ लाइव गंदी बातें करते हुए हिलाओ। रजिस्ट्रेशन की जरूरत नहीं। अभी से हिलाना शुरू करो।"
+  },
+  fr: {
+    all:"Tout", live:"Live", ai:"IA", anime:"Anime", europe:"Occidental", asian:"Asiatique", homemade:"Amateur", lesbian:"Lesbienne", threesome:"Plan à 3", anal:"Anal", longlegs:"Longues jambes",
+    search:"Rechercher...", empty:"Aucune vidéo", dl:"Télécharger", big:"↓ Télécharger · Regarder gratuitement", more:"Voir plus", tip:"100% Gratuit · Sans inscription", online:"En ligne ",
+    heroKicker: "✦ COLLECTION HARDCORE GRATUITE",
+    heroTitle: "Porno complet non censuré + Filles salopes en live",
+    heroDesc: "Énorme bibliothèque mise à jour chaque jour. Regardez du porno hard illimité gratuitement et branlez-vous en discutant/jouant salement avec de vraies filles en chaleur. Sans inscription. Commencez à vous branler maintenant."
+  },
+  de: {
+    all:"Alle", live:"Live", ai:"KI", anime:"Anime", europe:"Western", asian:"Asiatisch", homemade:"Homemade", lesbian:"Lesbisch", threesome:"Dreier", anal:"Anal", longlegs:"Lange Beine",
+    search:"Suchen...", empty:"Keine Videos", dl:"Download", big:"↓ Download · Kostenlos ansehen", more:"Mehr sehen", tip:"100% Kostenlos · Keine Anmeldung", online:"Online ",
+    heroKicker: "✦ KOSTENLOSE HARDCORE-KOLLEKTION",
+    heroTitle: "Kostenlose unzensierte Full-Videos + Versaute Live Cam Girls",
+    heroDesc: "Riesige Bibliothek, täglich aktualisiert. Unbegrenzt Hardcore-Porno kostenlos streamen und wichsen, während du live mit echten geilen Girls dreckig chatest und spielst. Keine Anmeldung. Fang jetzt an zu wichsen."
+  },
+  es: {
+    all:"Todo", live:"En vivo", ai:"IA", anime:"Anime", europe:"Occidental", asian:"Asiático", homemade:"Casero", lesbian:"Lesbianas", threesome:"Trío", anal:"Anal", longlegs:"Piernas largas",
+    search:"Buscar títulos...", empty:"No se encontraron videos", dl:"Descargar", big:"↓ Descargar · Ver gratis · Sin iniciar sesión", more:"Haz clic para ver más", tip:"100% gratis · Sin registro · Sin cuotas", online:"En línea ",
+    heroKicker: "✦ COLECCIÓN HARDCORE GRATIS",
+    heroTitle: "Porno completo sin censura + Putas en vivo",
+    heroDesc: "Biblioteca enorme actualizada a diario. Mira porno hardcore ilimitado gratis y pajeate mientras chateas/juegas sucio con chicas reales calientes. Sin registro. Empieza a pajearte ya."
+  },
+  ar: {
+    all:"الكل", live:"مباشر", ai:"ذكاء اصطناعي", anime:"أنمي", europe:"غربي", asian:"آسيوي", homemade:"منزلي", lesbian:"سحاقي", threesome:"ثلاثي", anal:"شرجي", longlegs:"أرجل طويلة",
+    search:"ابحث عن العناوين...", empty:"لم يتم العثور على فيديوهات", dl:"تنزيل", big:"↓ تنزيل · مشاهدة مجانية · بدون تسجيل دخول", more:"انقر لعرض المزيد", tip:"مجاني 100% · لا يلزم التسجيل · بدون رسوم", online:"متصل ",
+    heroKicker: "✦ مجموعة هاردكور مجانية",
+    heroTitle: "فيديوهات كاملة بدون رقابة + بنات كام ساخنة مباشرة",
+    heroDesc: "مكتبة ضخمة يتم تحديثها يوميًا. شاهد إباحية هاردكور غير محدودة مجانًا واستمني وأنت تدردش وتلعب بقذارة مع بنات حقيقيات ساخنات مباشرة. بدون تسجيل. ابدأ بالاستمناء الآن."
+  }
 };
 
 let currentCategory = "all";
@@ -351,6 +405,16 @@ function setLang(choice) {
   
   const online = $("#onlineCount");
   if (online) online.textContent = t("online") + "14,340";
+
+  // 更新 Hero 区域文案
+  const heroKicker = $("#heroKicker");
+  if (heroKicker) heroKicker.textContent = t("heroKicker");
+  
+  const heroTitle = $("#heroTitle");
+  if (heroTitle) heroTitle.textContent = t("heroTitle");
+  
+  const heroDesc = $("#heroDesc");
+  if (heroDesc) heroDesc.textContent = t("heroDesc");
   
   render();
 }
@@ -509,5 +573,3 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
-</body>
-</html>
