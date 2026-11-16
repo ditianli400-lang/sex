@@ -7,7 +7,7 @@
 <meta name="facebook-domain-verification" content="p58b7meugr32xo9bbu75ftdoddxcqd" />
 <title>Video Collection</title>
 
-<!-- Meta Pixel Code (双 Pixel 正确写法与同步回传) -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,19 +17,12 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-
-// 初始化两个 Pixel
-fbq('init', '1144890321389774');
-fbq('init', '4734324863556351');
-
-// 分别为两个 Pixel 触发 PageView
-fbq('trackSingle', '1144890321389774', 'PageView');
-fbq('trackSingle', '4734324863556351', 'PageView');
+fbq('init', '2361613814243381');
+fbq('track', 'PageView');
 </script>
-<noscript>
-  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1144890321389774&ev=PageView&noscript=1"/>
-  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4734324863556351&ev=PageView&noscript=1"/>
-</noscript>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2361613814243381&ev=PageView&noscript=1"
+/></noscript>
 <!-- End Meta Pixel Code -->
 
 <style>
@@ -492,12 +485,10 @@ function render() {
 function download(position) {
   if (typeof fbq === 'function') {
     try {
-      // 两个 Pixel 同时回传 Lead
-      fbq('trackSingle', '1144890321389774', 'Lead', { content_name: 'WQJ_APK', position: position });
-      fbq('trackSingle', '4734324863556351', 'Lead', { content_name: 'WQJ_APK', position: position });
-      // 两个 Pixel 同时回传自定义 Download 事件
-      fbq('trackSingleCustom', '1144890321389774', 'Download', { content_name: 'WQJ_APK', position: position });
-      fbq('trackSingleCustom', '4734324863556351', 'Download', { content_name: 'WQJ_APK', position: position });
+      // 回传 Lead 事件
+      fbq('track', 'Lead', { content_name: 'WQJ_APK', position: position });
+      // 回传自定义 Download 事件
+      fbq('trackCustom', 'Download', { content_name: 'WQJ_APK', position: position });
     } catch(e) {}
   }
   const a = document.createElement("a");
@@ -573,3 +564,5 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+</body>
+</html>
